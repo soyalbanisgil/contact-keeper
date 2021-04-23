@@ -1,0 +1,27 @@
+##Instrucciones para el setup
+
+1. ACTIVA CUENTA Y BASE DE DATOS EN MONGO DB ATLAS
+https://account.mongodb.com/account
+- Ingresa a la cuenta.
+- Crea un Cluster.
+- Ir a la TAB Seguridad, agregar un nuevo usuario para este cluster.
+- Agrega la IP que puede acceder a ete cluster (en caso de desarrollo agrega que cualquier IP puede acceder).
+
+1. INSTALAR LAS DEPENDENCIAS DEL BACKEND
+- Instala Postman para poder hacer las pruebas de la API
+- Instala las dependencias que vas a utilizar para el proyecto:
+    #DEPENDENCIAS PRINCIPALES
+    npm install express bcryptjs jsonwebtoken config express-validator mongoose
+    #DEPENDENCIAS DE desarrollo
+    npm install -D nodemon concurrently
+- Crea scripts en el package.json para que se ejecute mas facil la aplicacion
+    "start": "node server.js",
+    "server": "nodemon server.js"
+
+2. CREA EL ARCHIVO SERVER.JS
+
+3. CREA LAS RUTAS DEL BACKEND
+
+4. CONECTA MONGODB A LA APP
+
+5. CONFIGURA LAS RUTAS, MODELS, ARCHIVOS CONFIG, ETC
