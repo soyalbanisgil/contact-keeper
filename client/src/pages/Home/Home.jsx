@@ -5,6 +5,7 @@ import { ContactForm } from '../../components/ContactForm/ContactForm';
 import './Home.sass';
 
 import Modal from 'react-modal';
+import { ContactFilter } from '../../components/Contacts/ContactFilter';
 
 Modal.setAppElement('#root');
 
@@ -17,6 +18,7 @@ export const Home = () => {
             <Sidebar setModalIsOpen={setModalIsOpen} />
             <div id="content">
                 <div className="container">
+                    <ContactFilter />
                     <Contacts setModalIsOpen={setModalIsOpen} />
                 </div>
             </div>
