@@ -1,9 +1,18 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './Sidebar.sass';
+import AuthContext from '../../Context/Auth/authContext';
 
 export const Sidebar = (props) => {
 
+    const authContext = useContext(AuthContext);
+
+    const { logoutUser } = authContext;
+
     const { setModalIsOpen } = props;
+
+    const handleClick = () => {
+        logoutUser();
+    };
 
     return (
         <nav id="sidebar" className='text-center py-5'>
@@ -25,7 +34,7 @@ export const Sidebar = (props) => {
                 </li>
             </ul>
 
-            <button className='btn btn-primary'>Logout</button>
+            <button onClick={handleClick} className='btn btn-primary'>Logout</button>
         </nav>
     );
 };

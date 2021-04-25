@@ -19,7 +19,7 @@ export const ContactItem = ({ contact, setModalIsOpen }) => {
   };
 
   return (
-    <div className='contact-card text-center'>
+    <div className='contact-card text-center animate__animated animate__zoomIn'>
       <h4 className='contact-name'>{contact.name}</h4>
       <span className={'badge ' + (contact.type === 'personal' ? 'badge-success' : 'badge-primary')}>{contact.type}</span>
       <p className='contact-email'>{contact.email}</p>
