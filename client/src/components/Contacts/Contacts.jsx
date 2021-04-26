@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { Fragment, useContext, useEffect } from 'react';
 import './Contacts.sass';
 
 import contactContext from '../../Context/Contact/contactContext';
@@ -17,24 +17,30 @@ export const Contacts = (props) => {
         // eslint-disable-next-line
     }, []);
 
-    if (contacts.length === 0) {
+    if (contacts !== null && contacts.length === 0) {
         return <h4>Please add a contact</h4>;
     }
 
     return (
-        <div className="row">
-            {filtered !== null ? filtered.map(contact => (
-                <div key={contact._id} className="col-3">
-                    <ContactItem contact={contact} setModalIsOpen={setModalIsOpen} />
-                </div>
-            )) :
-                contacts.map(contact => (
-                    <div key={contact._id} className="col-3">
-                        <ContactItem contact={contact} setModalIsOpen={setModalIsOpen} />
-                    </div>
-                ))
-            }
+        <Fragment>
+            { contacts !== null ? (
+                <div className="row">
+                    {filtered !== null ? filtered.map(contact => (
+                        <div key={contact._id} className="col-3">
+                            <ContactItem contact={contact} setModalIsOpen={setModalIsOpen} />
+                        </div>
+                    )) :
+                        contacts.map(contact => (
+                            <div key={contact._id} className="col-3">
+                                <ContactItem contact={contact} setModalIsOpen={setModalIsOpen} />
+                            </div>
+                        ))
+                    }
 
-        </div>
+                </div>
+            ) : (
+                <h1>Cargando</h1>
+            )}
+        </Fragment>
     );
 };

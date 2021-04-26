@@ -1,11 +1,18 @@
 import React, { useContext, useState, useEffect } from 'react';
 import contactContext from '../../Context/Contact/contactContext';
 
-export const ContactForm = () => {
+export const ContactForm = ({ setModalIsOpen }) => {
 
     const ContactContext = useContext(contactContext);
 
     const { addContact, current, updateContact, clearCurrent } = ContactContext;
+
+    const [contact, setContact] = useState({
+        name: '',
+        email: '',
+        phone: '',
+        type: 'personal'
+    });
 
     useEffect(() => {
         if (current !== null) {
@@ -18,14 +25,9 @@ export const ContactForm = () => {
                 type: 'personal'
             });
         }
-    }, [ContactContext, current]);
+    }, [current]);
 
-    const [contact, setContact] = useState({
-        name: '',
-        email: '',
-        phone: '',
-        type: 'personal'
-    });
+
 
     const { name, email, phone, type } = contact;
 
@@ -35,15 +37,12 @@ export const ContactForm = () => {
         e.preventDefault();
         if (current === null) {
             addContact(contact);
+            setModalIsOpen(false);
         } else {
             updateContact(contact);
+            setModalIsOpen(false);
         }
-        setContact({
-            name: '',
-            email: '',
-            phone: '',
-            type: 'personal'
-        });
+        clearAll();
     };
 
     const clearAll = () => {

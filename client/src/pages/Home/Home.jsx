@@ -35,7 +35,7 @@ export const Home = () => {
                     background: 'rgba(0,0,0,0.5)'
                 }
             }}>
-                <ContactForm />
+                <ContactForm setModalIsOpen={setModalIsOpen} />
             </Modal>
         </div>
     );

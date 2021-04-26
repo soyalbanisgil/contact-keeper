@@ -17,7 +17,7 @@ import {
 
 const ContactState = (props) => {
   const initialState = {
-    contacts: [],
+    contacts: null,
     current: null,
     filtered: null,
     error: null,
@@ -27,7 +27,7 @@ const ContactState = (props) => {
   const [state, dispatch] = useReducer(contactReducer, initialState);
 
   // get contacts
-  const getContacts = async (contact) => {
+  const getContacts = async () => {
     try {
       const res = await axios.get('/api/contacts');
       dispatch({ type: GET_CONTACTS, payload: res.data });

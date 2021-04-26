@@ -8,6 +8,8 @@ export const ContactItem = ({ contact, setModalIsOpen }) => {
 
   const { deleteContact, setCurrent, clearCurrent } = ContactContext;
 
+  console.log(contact);
+
   const onDelete = () => {
     deleteContact(contact._id);
     clearCurrent();
