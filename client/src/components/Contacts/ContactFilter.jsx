@@ -11,6 +11,7 @@ export const ContactFilter = () => {
         if (ContactContext.filtered == null) {
             text.current.value = '';
         }
+        // eslint-disable-next-line
     }, []);
 
 

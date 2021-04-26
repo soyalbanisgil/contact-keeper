@@ -9,7 +9,7 @@ export const ContactItem = ({ contact, setModalIsOpen }) => {
   const { deleteContact, setCurrent, clearCurrent } = ContactContext;
 
   const onDelete = () => {
-    deleteContact(contact.id);
+    deleteContact(contact._id);
     clearCurrent();
   };
 

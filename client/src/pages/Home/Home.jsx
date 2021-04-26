@@ -16,6 +16,7 @@ export const Home = () => {
 
     useEffect(() => {
         authContext.loadUser();
+        // eslint-disable-next-line
     }, []);
 
     const [modalIsOpen, setModalIsOpen] = useState(false);
