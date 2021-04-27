@@ -1,5 +1,6 @@
 const express = require('express');
 const connectDB = require('./config/db');
+const path = require('path');
 
 // servidor basico con express
 const app = express();
@@ -10,10 +11,21 @@ connectDB();
 // Iniciar Middlewares
 app.use(express.json({ extended: false }));
 
-// enpoint
+/* enpoint
 app.get('/', (req, res) =>
   res.json({ message: 'Welcome to the contact keeper API' })
 );
+*/
+
+// server static assets in production
+if (process.env.NODE_ENV === 'production') {
+  // set static folder
+  app.use(express.static('client/build'));
+
+  app.get('*', (req, res) =>
+    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
+  );
+}
 
 // define las rutas
 app.use('/api/users', require('./routes/users'));
